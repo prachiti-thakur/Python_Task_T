@@ -24,7 +24,7 @@ def img_to_string():
     
     for i in range(1,3):
         img=Image.open(f"images/page_{i}.jpg")
-        text=str(pytesseract.image_to_string(img))
+        text=pytesseract.image_to_string(img)
         textfile=open (outputfile,"a")
         textfile.writelines(text)
         
