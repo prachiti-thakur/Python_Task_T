@@ -14,7 +14,8 @@ def preprocessing(image):
         PIL.Image: The preprocessed image
     """
     try:
-        np_img = np.array(image.convert('L'))
+        np_img = np.array(image.convert('L')) # L (8-bit pixels, grayscale)
+        
         # Apply fast contrast stretching using numpy operations
         p2, p98 = np.percentile(np_img, (2, 98))
         img_stretched = np.interp(np_img, (p2, p98), (0, 255)).astype(np.uint8)
